@@ -33,3 +33,33 @@ class Solution:
         return False
 
 
+def longestPalindrome(s: str) -> str:
+    if not s or len(s) == 1:
+        return s
+    n = len(s)
+    dp = [[False]*n for _ in range(n)]
+    max_len = 1
+    start = 0
+    
+    for i in range(n):
+        dp[i][i] = True
+        if i<n-1 and s[i]==s[i+1]:
+            dp[i][i+1] = True
+            start = i
+            max_len = 2
+
+    for l in range(3, n+1):
+        for i in range(n+1-l):
+            r = i + l - 1
+            if s[i] == s[r] and dp[i+1][r-1]:
+                dp[i][r] = True
+                start = i
+                max_len = l
+    
+    return s[start:start+max_len]
+    
+
+if __name__ == '__main__':
+    tstr = 'noon'
+    substr = longestPalindrome(tstr)
+    print(substr)
