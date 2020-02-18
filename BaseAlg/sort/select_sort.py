@@ -20,11 +20,23 @@ def select_sort_1(lst):
     return res
 
 
+def select_sort_2(lst):
+    min_index = 0
+
+    for ind in range(len(lst)):
+        for k in range(ind, len(lst)):
+            if lst[ind] > lst[k]:
+                lst[ind], lst[k] = lst[k], lst[ind]
+
+    return lst
+
+
 if __name__ == '__main__':
     lst = list(range(20))
     random.shuffle(lst)
 
     print(lst)
-    res = select_sort_1(lst)
+    #res = select_sort_1(lst)
+    res = select_sort_2(lst)
     print(res)
 
