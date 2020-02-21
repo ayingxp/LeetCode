@@ -44,4 +44,4 @@ class Solution:
 
 if __name__ == '__main__':
     s = Solution()
-    print s.isStrobogrammic('99')
+    print(s.isStrobogrammic('99'))
