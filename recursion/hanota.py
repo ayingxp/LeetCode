@@ -45,7 +45,7 @@ class Solution:
         else:
             self.move(n-1, A, C, B)  # 将A上面n-1个盘子通过C移动到B
             C.append(A[-1])  # 将A最后一个移动到C
-            A.pop()
+            A.pop()   # 此时A已经空
             self.move(n-1, B, A, C)  #  将B上面n-1个盘子通过A移动到C
 
 
