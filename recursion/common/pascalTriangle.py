@@ -23,6 +23,32 @@ class Solution:
         
         return res
 
+    def generate_recur(self, numRows: int):
+        """
+        if i == 0 or j == 0 or i == j:
+        f(i,j) = 1
+
+        else:
+           f(i, j) = f(i-1, j-1) + f(i-1, j)
+
+        """
+
+        def helper(i, j):
+            if j == 0 or i==j:
+                return 1
+            else:
+                return helper(i-1, j-1) + helper(i-1, j)
+
+        res = []
+        for i in range(numRows):
+            tmp = []
+            for j in range(i+1):
+                tmp.append(helper(i, j))
+            res.append(tmp)
+        return res
+
+        pass
+
 
 
 if __name__ == '__main__':
