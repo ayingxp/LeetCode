@@ -49,12 +49,14 @@ if __name__ == '__main__':
 
 
     head = node1
-    print(head.val)
 
     s = Solution2()
     head = s.swapPairs(head)
 
-    print(head.val)
+    while head:
+        print(head.val)
+        head = head.next
+
 
 
 
