@@ -77,6 +77,30 @@ class BinaryTree(object):
             print(i, end=" ")
 
 
+    def isBalance(self, root):
+        """判断树是否平衡"""
+        if not root:
+            return True
+
+        else:
+            left_deep = self.deepth(root.left)
+            right_deep = self.deepth(root.right)
+
+            if abs(left_deep - right_deep) <= 1:
+                return True
+        return False
+
+    def deepth(self, root):
+        """判断树的深度"""
+        deep = 0
+        if not root:
+            return deep
+        else:
+            left_deep = self.deepth(root.left)
+            right_deep = self.deepth(root.right)
+        return max(left_deep, right_deep) + 1
+
+
 if __name__ == "__main__":
     a = TreeNode("A")
     b = TreeNode("B")
@@ -86,7 +110,7 @@ if __name__ == "__main__":
     f = TreeNode("F")
     g = TreeNode("G")
 
-    data = ["A", "B", "C", "D", "E", "F", "G"]
+    data = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"]
     btree = BinaryTree()
     for d in data:
         btree.add(d)
@@ -99,6 +123,12 @@ if __name__ == "__main__":
     btree.postorder(btree.root)
     print("\n层次遍历: ")
     btree.levelorder(btree.root)
+
+    print("\n树的深度: ")
+    print(btree.deepth(btree.root))
+
+    print("\n判断树是否平衡: ")
+    print(btree.isBalance(btree.root))
 
 
 
