@@ -110,8 +110,6 @@ def can_place(x, y):
     return True
 
 
-
-
 def put_queen_rec2(step):
     if step == len(board):
         # res.append(board[:])
