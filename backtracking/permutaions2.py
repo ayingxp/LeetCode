@@ -19,6 +19,12 @@ def permutate(data):
     return res
 
 def permutate2(data, step):
+    """
+        A B C
+    :param data:
+    :param step:
+    :return:
+    """
     if step == len(data):
         res.append(data[:])  # 切片会进行深度拷贝
     else:
@@ -27,10 +33,12 @@ def permutate2(data, step):
             permutate2(data, step + 1)
             data[i], data[step] = data[step], data[i]
 
-
+"""
+1. step = 0, i = 0, data = [A, B, C]
+"""
 
 if __name__ == "__main__":
     from pprint import pprint
     # print(permutate(data[:3]))
-    permutate2(data[:3], 0)
+    permutate2(data[:5], 0)
     pprint(res)
