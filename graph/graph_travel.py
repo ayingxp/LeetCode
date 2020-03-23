@@ -4,12 +4,6 @@
 # 有向图的邻接表表示 (注: 另一种表示方法为 邻接矩阵)
 
 
-"""
-
-
-
-"""
-
 graph = {}
 
 graph['a'] = ['b']
@@ -22,7 +16,7 @@ graph['e'] = ['a']
 def bfs(graph, start_pos):
     """使用队列来实现广度优先遍历"""
     queue = [start_pos]
-    travel = []
+    travel = [start_pos]
 
     while queue:
         current = queue.pop(0)
@@ -35,9 +29,6 @@ def bfs(graph, start_pos):
                 queue.append(next_k)
 
     print(travel)
-
-
-
 
 
 def dfs(graph, start_pos):
@@ -64,4 +55,4 @@ def dfs(graph, start_pos):
 
 if __name__ == "__main__":
     bfs(graph, 'a')
-    # dfs(graph, 'a')
+    dfs(graph, 'a')
