@@ -14,7 +14,12 @@ info = [
     [5, 12]
 ]
 
+mem_cache = {}
+
 def search_mem(depth, pack_limit):
+    if "{depth}_{pack_limit}".format(depth=depth, pack_limit=pack_limit) in mem_cache:
+        return mem_cache[str(depth) + "_" + str(pack_limit)]
+
     if depth == len(info) - 1:
         return info[depth][1] if pack_limit >= info[depth][0] else 0
 
@@ -29,7 +34,12 @@ def search_mem(depth, pack_limit):
         else:
             put_value = not_put_value
 
-        return max(not_put_value, put_value)  # 选最优策略
+        data = max(not_put_value, put_value)  # 选最优策略
+
+    if "{depth}_{pack_limit}".format(depth=depth, pack_limit=pack_limit) not in mem_cache:
+        mem_cache[str(depth) + "_" + str(pack_limit)] = data
+
+    return data
 
 
 if __name__ == "__main__":
@@ -38,3 +48,4 @@ if __name__ == "__main__":
 
     res = search_mem(depth, pack_limit)
     print(res)
+    print(mem_cache)
