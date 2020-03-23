@@ -54,3 +54,4 @@ if __name__ == '__main__':
         [1, 1, 1, 1, 1, 1, 1]
     ]
     maze_stack(maze, (1, 1), (5, 5))
+    pprint(maze)
