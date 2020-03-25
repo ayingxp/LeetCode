@@ -46,9 +46,9 @@ def longestSubstringNoRepeat2(string):
     return length
 
 
-l = longestSubstringNoRepeat2(string)
-print(l)
-exit()
+# l = longestSubstringNoRepeat2(string)
+# print(l)
+# exit()
 
 def longestSubstringNoRepeat(string):
     """
